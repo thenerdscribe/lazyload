@@ -1,0 +1,44 @@
+@import "reset";
+@import "variables";
+
+.wrapper {
+  margin: 0 auto;
+  max-width: $u * 18.75;
+}
+
+.box {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: $u auto;
+  background: $grey--light;
+}
+
+.js-lazy {
+  transition: opacity 0.2s ease-in-out, transform 0.4s ease-in-out;
+  transform: translateY(2rem);
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+a {
+  color: $color;
+}
+
+.nested-content,
+img {
+  flex: 1;
+}
+
+.content {
+  flex: 1;
+  padding: $u;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}

@@ -1,0 +1,43 @@
+@import "variables";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  font-family: "Open Sans", sans-serif;
+  color: $grey;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+p {
+  line-height: 1.6;
+}
+
+pre,
+code {
+  font-family: "Source Code Pro", monospace;
+  white-space: nowrap;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: $u / 3;
+}
