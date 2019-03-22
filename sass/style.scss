@@ -10,6 +10,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   margin: $u auto;
   background: $grey--light;
 }
@@ -41,4 +42,9 @@ img {
   flex-direction: column;
   justify-content: center;
   text-align: left;
+  max-width: 50%;
+}
+
+.box img {
+  max-width: 50%;
 }
