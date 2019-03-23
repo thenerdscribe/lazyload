@@ -1,5 +1,5 @@
 module.exports = {
-  files: ["index.html", "css/*.css", "js/*.js", "*.php"],
+  files: ["index.html", "*.css", "js/*.js", "*.php"],
   proxy: "lazy-load.test",
   host: "lazy-load.test",
   open: "external",

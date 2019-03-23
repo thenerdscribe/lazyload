@@ -6,14 +6,19 @@
   box-sizing: border-box;
 }
 
+*:last-child {
+  margin-bottom: 0;
+}
+
 html,
 body {
   min-height: 100vh;
   padding: 0;
   margin: 0;
   line-height: 1;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Source Sans", sans-serif;
   color: $grey;
+  padding: calc(var(--u) / 2) var(--u);
 }
 
 img {
@@ -21,6 +26,7 @@ img {
   display: block;
 }
 
+li,
 p {
   line-height: 1.6;
 }
@@ -29,6 +35,18 @@ pre,
 code {
   font-family: "Source Code Pro", monospace;
   white-space: nowrap;
+  max-width: 100%;
+  overflow: auto;
+  background: darken($grey--light, 10%);
+}
+
+pre {
+  display: block;
+  padding: calc(var(--u) / 4);
+}
+
+ul {
+  padding-left: calc(var(--u) / 2);
 }
 
 h1,
@@ -37,7 +55,8 @@ h3,
 h4,
 h5,
 h6,
+ul,
 p {
   margin-top: 0;
-  margin-bottom: $u / 3;
+  margin-bottom: calc(var(--u) / 3);
 }

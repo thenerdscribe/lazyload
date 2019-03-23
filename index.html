@@ -2,46 +2,50 @@
 <html>
   <head>
     <title>lazy-load</title>
-    <meta name="viewport" value="width=device-width, intial=scale:1;">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Source+Code+Pro" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, intial=scale:1;">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Source+Code+Pro" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
-    <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
   </head>
   <body>
     <div class="wrapper">
       <div class="box one">
         <div class="content">
-          <h1>Lazy Load Demonstration</h1>
-          <h2>Developed by: Ryan Morton</h2>
-          <p>
-            This is a demonstration of a lazy load framework. It works using <code>IntersectionObserver</code> and some classes. Spefically <code>.js-lazy</code>
-          </p>
-          <h3>Lazy-Load: Three Ways</h3>
-          <ol>
-            <li>Photo assets</li>
-            <li>Content flow</li>
-            <li><strong>Bonus:</strong> Time-based</li>
+          <h1>LazyLoad.js</h1>
+          <p>An opinionated way to load sections of content</p>
         </div>
         <img src="https://images.unsplash.com/photo-1552688419-9949ce9dd731?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb">
       </div>
       <div class="box two js-lazy">
         <img src="" data-src="https://unsplash.com/photos/MF16lGb95WY/download">
         <div class="content">
-          <h1>Photo Assets</h1>
-          <h2>(Traditional Lazy Load)</h2>
-          <p>This code utilizes a traditional lazy load approach of changing the <code>src</code> attribute on an element to the <code>src</code> when needed. The classic "pop in" effect is obfuscated by container elements being faded in.</p>
+          <h2>How it Works</h2>
+          <p>
+            Using a (polyfilled) <code>IntersectionObserver</code>, LazyLoad.js offloads image fetching until needed and also after a few seconds of the browser being loaded. A standard animation for lazy-loaded sections is applied.
+          </p>
         </div>
       </div>
       <div class="box three js-lazy">
         <div class="content">
-          <h1>Visiual</h1>
-          <p>The visual animation is the same across all elements that have the <code>.js-lazy</code> class. This provides a clear understanding and expectation for the user.</p>
+          <h1>Implementation</h1>
+          <p>
+            Wire up any element that you want to defer loading with the class of your choice. Define a second class to add for your animation. Simple as that.
+          </p>
+          <pre>
+            <code>
+              const lazy = new LazyLoad(".js-lazy", "show");
+              lazy.load();
+            </code>
+          </pre>
         </div>
         <img src="" data-src="https://images.unsplash.com/photo-1511491534916-e1654c9b193d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb">
       </div>
 
       <div class="box-featured js-lazy">
         <img src="" data-src="https://unsplash.com/photos/2TQwrtZnl08/download" alt="">
+        <div class="content-featured">
+          <h1>Layout Agnostic</h1>
+          <p>LazyLoad.js doesn't care about how your content is configured inside of the container. Slap the same class on and you'll have a good time.</p>
+        </div>
       </div>
 
       <div class="box four js-lazy">
@@ -49,11 +53,17 @@
           <img src="" data-src="https://unsplash.com/photos/EniolfN2NsQ/download">
         </div>
         <div class="content">
-          <h3>Implementation</h3>
-          <p>As long as the class <code>.js-lazy</code> is present on the parent element, the content will do the fade in dance. If you want to take advantage of the image lazy loading (and you should), change your <code>src</code> attributes to <code>data-src</code>.</p>
+          <h2>Options</h2>
+          <ul>
+            <li><code>elementToWatch</code> (Required)</li>
+            <li><code>classToAdd</code> (Required)</li>
+            <li><code>lazyTimeout</code> How long to wait to fetch other images</li>
+            <li><code>intersectionRatio</code> How much of the section needs to be intersected</li>
+          </ul>
         </div>
       </div>
     </div>
-    <script src="js/index.js" async defer></script>
+    <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+    <script type="module" src="js/index.js" async defer></script>
   </body>
 </html>

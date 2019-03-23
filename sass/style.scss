@@ -3,27 +3,17 @@
 
 .wrapper {
   margin: 0 auto;
-  max-width: $u * 18.75;
+  max-width: calc(var(--u) * 30);
 }
 
 .box {
   width: 100%;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  margin: $u auto;
+  margin: calc(var(--u) * 2) auto;
   background: $grey--light;
-}
-
-.js-lazy {
-  transition: opacity 0.2s ease-in-out, transform 0.4s ease-in-out;
-  transform: translateY(2rem);
-  opacity: 0;
-}
-
-.show {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 a {
@@ -37,14 +27,37 @@ img {
 
 .content {
   flex: 1;
-  padding: $u;
+  padding: calc(var(--u) * 2);
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  max-width: 50%;
+  max-width: 100%;
 }
 
-.box img {
-  max-width: 50%;
+@media screen and (min-width: 900px) {
+  .wrapper {
+    max-width: calc(var(--u) * 22);
+  }
+  .box {
+    flex-direction: row;
+    img {
+      max-width: 50%;
+    }
+  }
+  .content {
+    max-width: 50%;
+  }
+}
+
+.nested-content img {
+  max-width: 100%;
+}
+
+@import "lazy-classes";
+
+.content-featured {
+  padding: var(--u);
+  background: $grey--light;
+  text-align: center;
 }

@@ -1,0 +1,10 @@
+.js-lazy {
+  transition: opacity 0.2s ease-in-out, transform 0.4s ease-in-out;
+  transform: translateY(2rem);
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}

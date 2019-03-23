@@ -1,4 +1,13 @@
 $color: orangered;
-$u: 4rem;
 $grey: #333;
 $grey--light: #f9f9f9;
+
+:root {
+  --u: 4vw;
+}
+
+@media screen and (min-width: 900px) {
+  :root {
+    --u: 3vw;
+  }
+}
